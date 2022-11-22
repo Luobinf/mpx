@@ -20,6 +20,8 @@
   "main": "src/index.js",
   "dependencies": {
     "@mpxjs/utils": "^2.8.2",
+    "@vue/runtime-core": "^3.2.45",
+    "@vue/runtime-dom": "^3.2.45",
     "lodash": "^4.1.1",
     "miniprogram-api-typings": "^3.0.2"
   },

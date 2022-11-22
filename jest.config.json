@@ -7,5 +7,6 @@
   },
   "testEnvironment": "jsdom",
   "testMatch": ["**/packages/**/?(*.)+(spec|test).[jt]s?(x)"],
+  "setupFilesAfterEnv": ["./scripts/setupJestEnv.js"],
   "testPathIgnorePatterns": ["dist", "node_modules"]
 }

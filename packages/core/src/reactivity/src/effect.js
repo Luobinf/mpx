@@ -7,24 +7,34 @@ import {
   newTracked,
   wasTracked,
 } from "./dep";
+
 const targetMap = new WeakMap();
+
 // The number of effects currently being tracked recursively.
 let effectTrackDepth = 0;
+
 export let trackOpBit = 1;
+
 /**
  * The bitwise track markers support at most 30 levels of recursion.
  * This value is chosen to enable modern JS engines to use a SMI on all platforms.
  * When recursion depth is greater, fall back to using a full cleanup.
  */
 const maxMarkerBits = 30;
+
 export let activeEffect;
+
 // export const ITERATE_KEY = Symbol(__DEV__ ? 'iterate' : '');
 export const ITERATE_KEY = Symbol("");
+
 // export const MAP_KEY_ITERATE_KEY = Symbol(__DEV__ ? 'Map key iterate' : '');
 export const MAP_KEY_ITERATE_KEY = Symbol("");
 
+let uid = 0
+
 export class ReactiveEffect {
   constructor(fn, scheduler = null, scope) {
+    this.id = ++uid;
     this.fn = fn;
     this.scheduler = scheduler;
     this.active = true;
@@ -32,6 +42,7 @@ export class ReactiveEffect {
     this.parent = undefined;
     recordEffectScope(this, scope);
   }
+
   run() {
     if (!this.active) {
       return this.fn();
@@ -68,19 +79,21 @@ export class ReactiveEffect {
       }
     }
   }
+
   stop() {
     // stopped while running itself - defer the cleanup
     if (activeEffect === this) {
       this.deferStop = true;
     } else if (this.active) {
       cleanupEffect(this);
-      if (this.onStop) {
+      if (this.onStop && typeof this.onStop === 'function') {
         this.onStop();
       }
       this.active = false;
     }
   }
 }
+
 function cleanupEffect(effect) {
   const { deps } = effect;
   if (deps.length) {
@@ -90,6 +103,7 @@ function cleanupEffect(effect) {
     deps.length = 0;
   }
 }
+
 export function effect(fn, options) {
   if (fn.effect) {
     fn = fn.effect.fn;
@@ -106,23 +120,30 @@ export function effect(fn, options) {
   runner.effect = _effect;
   return runner;
 }
+
 export function stop(runner) {
   runner.effect.stop();
 }
+
 export let shouldTrack = true;
+
 const trackStack = [];
+
 export function pauseTracking() {
   trackStack.push(shouldTrack);
   shouldTrack = false;
 }
+
 export function enableTracking() {
   trackStack.push(shouldTrack);
   shouldTrack = true;
 }
+
 export function resetTracking() {
   const last = trackStack.pop();
   shouldTrack = last === undefined ? true : last;
 }
+
 export function track(target, type, key) {
   if (shouldTrack && activeEffect) {
     let depsMap = targetMap.get(target);
@@ -140,6 +161,7 @@ export function track(target, type, key) {
     trackEffects(dep, eventInfo);
   }
 }
+
 export function trackEffects(dep, debuggerEventExtraInfo) {
   let shouldTrack = false;
   if (effectTrackDepth <= maxMarkerBits) {
@@ -159,6 +181,7 @@ export function trackEffects(dep, debuggerEventExtraInfo) {
     // }
   }
 }
+
 export function trigger(target, type, key, newValue, oldValue, oldTarget) {
   const depsMap = targetMap.get(target);
   if (!depsMap) {
@@ -240,6 +263,7 @@ export function trigger(target, type, key, newValue, oldValue, oldTarget) {
     triggerEffects(createDep(effects));
   }
 }
+
 export function triggerEffects(dep, debuggerEventExtraInfo) {
   // spread into array for stabilization
   const effects = isArray(dep) ? dep : [...dep];
@@ -254,6 +278,7 @@ export function triggerEffects(dep, debuggerEventExtraInfo) {
     }
   }
 }
+
 function triggerEffect(effect, debuggerEventExtraInfo) {
   if (effect !== activeEffect || effect.allowRecurse) {
     // if (__DEV__ && effect.onTrigger) {

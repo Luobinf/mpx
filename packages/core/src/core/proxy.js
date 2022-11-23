@@ -1,6 +1,9 @@
-import { reactive } from '../observer/reactive'
-import { ReactiveEffect } from '../observer/effect'
-import { effectScope } from '../platform/export/index'
+// import { reactive } from '../observer/reactive'
+import { reactive } from '../reactivity/src/reactive'
+// import { ReactiveEffect } from '../observer/effect'
+import { ReactiveEffect, effectScope } from '../reactivity/src/effect'
+
+// import { effectScope } from '../platform/export/index'
 import { watch } from '../observer/watch'
 import { computed } from '../observer/computed'
 import { queueJob, nextTick } from '../observer/scheduler'

@@ -4,6 +4,7 @@
   "description": "A mpx project",
   "main": "index.js",
   "scripts": {
+    "copyCore": "sh ./copyCore.sh",
     "watch": "node ./build/build.js -w",
     "watch:prod": "node ./build/build.js -w -p",
     "build": "node ./build/build.js -p",

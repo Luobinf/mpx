@@ -1,9 +1,10 @@
 // import { reactive } from '../observer/reactive'
 import { reactive } from '../reactivity/src/reactive'
 // import { ReactiveEffect } from '../observer/effect'
-import { ReactiveEffect, effectScope } from '../reactivity/src/effect'
-
+import { ReactiveEffect } from '../reactivity/src/effect'
 // import { effectScope } from '../platform/export/index'
+import { effectScope } from '../reactivity/src/effectScope'
+
 import { watch } from '../observer/watch'
 import { computed } from '../observer/computed'
 import { queueJob, nextTick } from '../observer/scheduler'
@@ -223,8 +224,8 @@ export default class MpxProxy {
 
   initProps () {
     this.props = diffAndCloneA(this.target.__getProps(this.options)).clone
-    reactive(this.props)
-    proxy(this.target, this.props, undefined, false, this.createProxyConflictHandler('props'))
+    const reactiveProps = reactive(this.props)
+    proxy(this.target, reactiveProps, undefined, false, this.createProxyConflictHandler('props'))
   }
 
   initSetup () {
@@ -261,8 +262,8 @@ export default class MpxProxy {
     if (isFunction(dataFn)) {
       Object.assign(this.data, callWithErrorHandling(dataFn.bind(this.target), this, 'data function'))
     }
-    reactive(this.data)
-    proxy(this.target, this.data, undefined, false, this.createProxyConflictHandler('data'))
+    const reactiveData = reactive(this.data)
+    proxy(this.target, reactiveData, undefined, false, this.createProxyConflictHandler('data'))
     this.collectLocalKeys(this.data)
   }
 

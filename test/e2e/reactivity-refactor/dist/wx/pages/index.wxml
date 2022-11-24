@@ -1,1 +1,1 @@
-<view><text>{{ name }}</text><text>\n{{ info.message }}</text></view>
+<view><text>{{ name }}</text><view wx:for="{{ bookList }}"><text>{{ item }}</text></view></view>

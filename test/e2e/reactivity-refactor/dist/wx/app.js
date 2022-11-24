@@ -8,7 +8,7 @@ self["webpackChunka_mpx"] = require("./bundle.js");
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 __webpack_require__.g.currentModuleId = "mpx-app-scope"
-__webpack_require__.g.currentResource = "/Users/october/Desktop/github-contrib/mpx/test/e2e/a-mpx/src/app.mpx"
+__webpack_require__.g.currentResource = "/Users/october/Desktop/github-contrib/mpx/test/e2e/reactivity-refactor/src/app.mpx"
 __webpack_require__.g.currentCtor = App
 __webpack_require__.g.currentCtorType = "app"
 __webpack_require__.g.currentResourceType = "app"
@@ -24,7 +24,7 @@ __webpack_require__(3)
 
 /***/ }),
 
-/***/ 539:
+/***/ 545:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -144,7 +144,7 @@ var isBrowser = typeof window !== 'undefined';
 
 /***/ }),
 
-/***/ 537:
+/***/ 543:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,8 +155,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(195);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_object_assign__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mini_transform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(538);
-/* harmony import */ var _mini_promisify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(543);
+/* harmony import */ var _mini_transform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(544);
+/* harmony import */ var _mini_promisify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(549);
 
 
 
@@ -234,7 +234,7 @@ function getProxy() {
 
 /***/ }),
 
-/***/ 540:
+/***/ 546:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_promise__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_index_of__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(189);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_index_of__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_index_of__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(539);
+/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(545);
 
 
 
@@ -887,12 +887,12 @@ var getWxToAliApi = function getWxToAliApi(_ref) {
 
 /***/ }),
 
-/***/ 541:
+/***/ 547:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(539);
+/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(545);
 
 var QQ_OBJ = (0,_common_js__WEBPACK_IMPORTED_MODULE_0__.getEnvObj)();
 var getWxToQqApi = function getWxToQqApi() {
@@ -914,7 +914,7 @@ var getWxToQqApi = function getWxToQqApi() {
 
 /***/ }),
 
-/***/ 542:
+/***/ 548:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -933,7 +933,7 @@ var getWxToTtApi = function getWxToTtApi() {
 
 /***/ }),
 
-/***/ 543:
+/***/ 549:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -942,7 +942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(357);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_promise__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(539);
+/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(545);
 
 
 
@@ -1024,17 +1024,17 @@ function promisify(listObj, whiteList, customBlackList) {
 
 /***/ }),
 
-/***/ 538:
+/***/ 544:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(202);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(539);
-/* harmony import */ var _platform_wxToAli__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(540);
-/* harmony import */ var _platform_wxToQq__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(541);
-/* harmony import */ var _platform_wxToTt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(542);
+/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(545);
+/* harmony import */ var _platform_wxToAli__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(546);
+/* harmony import */ var _platform_wxToQq__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(547);
+/* harmony import */ var _platform_wxToTt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(548);
 
 
 
@@ -1116,8 +1116,8 @@ function transformApi(options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mpxjs_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _mpxjs_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(486);
-/* harmony import */ var _mpxjs_api_proxy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(537);
+/* harmony import */ var _mpxjs_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(492);
+/* harmony import */ var _mpxjs_api_proxy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(543);
 
 
 _mpxjs_core__WEBPACK_IMPORTED_MODULE_0__["default"].use(_mpxjs_api_proxy__WEBPACK_IMPORTED_MODULE_1__["default"], {

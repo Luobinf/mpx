@@ -1,6 +1,6 @@
 <template>
   <view>
-    <text>{{ name }}</text>
+    <text>{{ name }}|| {{ info.address }}</text>
     <view wx:for="{{ bookList }}">
       <text>{{ item }}</text>
     </view>
@@ -8,7 +8,7 @@
 </template>
 
 <script> 
-import { createPage } from '@mpxjs/core'
+import { createPage, del, set } from '@mpxjs/core'
 
 createPage({
   data: {
@@ -21,6 +21,8 @@ createPage({
   onLoad() {
     // this.name = 'ma'
     this.bookList.push('name4')
+    set(this.info, 'address', 'hangzhou')
+    del(this.bookList, 1)
   }
 })
 </script>

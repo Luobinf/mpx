@@ -11354,6 +11354,7 @@ module.exports = !!webkit && +webkit[1];
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "del": function() { return /* binding */ del; },
 /* harmony export */   "isProxy": function() { return /* binding */ isProxy; },
 /* harmony export */   "isReactive": function() { return /* binding */ isReactive; },
 /* harmony export */   "isReadonly": function() { return /* binding */ isReadonly; },
@@ -11363,6 +11364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "reactiveMap": function() { return /* binding */ reactiveMap; },
 /* harmony export */   "readonly": function() { return /* binding */ readonly; },
 /* harmony export */   "readonlyMap": function() { return /* binding */ readonlyMap; },
+/* harmony export */   "set": function() { return /* binding */ set; },
 /* harmony export */   "shallowReactive": function() { return /* binding */ shallowReactive; },
 /* harmony export */   "shallowReactiveMap": function() { return /* binding */ shallowReactiveMap; },
 /* harmony export */   "shallowReadonly": function() { return /* binding */ shallowReadonly; },
@@ -11492,6 +11494,60 @@ var toReactive = function toReactive(value) {
 var toReadonly = function toReadonly(value) {
   return (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(value) ? readonly(value) : value;
 };
+
+// 以下 API 用于兼容 mpx 当前版本能力
+
+/**
+ * Set a property on an object. Adds the new property and
+ * triggers change notification if the property doesn't
+ * already exist.
+ */
+function set(target, key, val) {
+  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(target)) {
+    target[key] = val;
+    return val;
+  }
+  // if (Array.isArray(target) && isValidArrayIndex(key)) {
+  //   target.length = Math.max(target.length, key)
+  //   target.splice(key, 1, val)
+  //   return val
+  // }
+  // if (hasOwn(target, key)) {
+  //   target[key] = val
+  //   return val
+  // }
+  // const ob = getObserver(target)
+  // if (!ob) {
+  //   target[key] = val
+  //   return val
+  // }
+  // defineReactive(ob.value, key, val)
+  // ob.dep.notify()
+  // return val
+}
+
+/**
+ * Delete a property and trigger change if necessary.
+ */
+function del(target, key) {
+  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(target)) {
+    delete target[key];
+    return;
+  }
+  // if (Array.isArray(target) && isValidArrayIndex(key)) {
+  //   target.splice(key, 1);
+  //   return;
+  // }
+  // const ob = getObserver(target);
+  // if (!hasOwn(target, key)) {
+  //   return;
+  // }
+  // delete target[key];
+  // if (!ob) {
+  //   return;
+  // }
+  // ob.dep.notify();
+}
 
 /***/ }),
 /* 419 */
@@ -18436,23 +18492,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "APIs": function() { return /* binding */ APIs; },
 /* harmony export */   "InstanceAPIs": function() { return /* binding */ InstanceAPIs; }
 /* harmony export */ });
-/* harmony import */ var _observer_reactive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(239);
+/* harmony import */ var _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(418);
 /* harmony import */ var _observer_watch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(344);
 /* harmony import */ var _core_injectMixins__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(496);
+// import { set, del, reactive } from '../../observer/reactive'
 
 
 
 var APIs = {
   injectMixins: _core_injectMixins__WEBPACK_IMPORTED_MODULE_0__.injectMixins,
   mixin: _core_injectMixins__WEBPACK_IMPORTED_MODULE_0__.injectMixins,
-  observable: _observer_reactive__WEBPACK_IMPORTED_MODULE_1__.reactive,
+  observable: _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__.reactive,
   watch: _observer_watch__WEBPACK_IMPORTED_MODULE_2__.watch,
-  set: _observer_reactive__WEBPACK_IMPORTED_MODULE_1__.set,
-  delete: _observer_reactive__WEBPACK_IMPORTED_MODULE_1__.del
+  set: _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__.set,
+  delete: _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__.del
 };
 var InstanceAPIs = {
-  $set: _observer_reactive__WEBPACK_IMPORTED_MODULE_1__.set,
-  $delete: _observer_reactive__WEBPACK_IMPORTED_MODULE_1__.del
+  $set: _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__.set,
+  $delete: _reactivity_src_reactive__WEBPACK_IMPORTED_MODULE_1__.del
 };
 
 

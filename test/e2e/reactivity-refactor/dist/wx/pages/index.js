@@ -30,6 +30,7 @@ __webpack_require__(553)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mpxjs_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(525);
+/* harmony import */ var _mpxjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(239);
 
 (0,_mpxjs_core__WEBPACK_IMPORTED_MODULE_0__["default"])({
   data: {
@@ -42,6 +43,8 @@ __webpack_require__.r(__webpack_exports__);
   onLoad() {
     // this.name = 'ma'
     this.bookList.push('name4');
+    (0,_mpxjs_core__WEBPACK_IMPORTED_MODULE_1__.set)(this.info, 'address', 'hangzhou');
+    (0,_mpxjs_core__WEBPACK_IMPORTED_MODULE_1__.del)(this.bookList, 1);
   }
 });
 
@@ -53,7 +56,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.g.currentInject = {
   moduleId: "m2a1818d8",
   render: function () {
-    this._c("name", this.name);
+    this._c("name", this.name) + "|| " + this._c("info.address", this.info.address);
     this._i(this._c("bookList", this.bookList), function (item, index) {
       item;
     });

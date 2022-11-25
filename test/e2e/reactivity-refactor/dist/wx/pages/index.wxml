@@ -1,1 +1,1 @@
-<view><text>{{ name }}</text><view wx:for="{{ bookList }}"><text>{{ item }}</text></view></view>
+<view><text>{{ name }}|| {{ info.address }}</text><view wx:for="{{ bookList }}"><text>{{ item }}</text></view></view>

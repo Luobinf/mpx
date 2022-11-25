@@ -15,6 +15,7 @@ export const reactiveMap = new WeakMap();
 export const shallowReactiveMap = new WeakMap();
 export const readonlyMap = new WeakMap();
 export const shallowReadonlyMap = new WeakMap();
+
 function targetTypeMap(rawType) {
   switch (rawType) {
     case "Object":
@@ -157,3 +158,27 @@ export const toReactive = (value) =>
   isObject(value) ? reactive(value) : value;
 export const toReadonly = (value) =>
   isObject(value) ? readonly(value) : value;
+
+// The following API is compatible for the prev version of mpx capability
+
+/**
+ * Set a property on an object. Adds the new property and
+ * triggers change notification if the property doesn't
+ * already exist.
+ */
+export function set(target, key, val) {
+  if (isObject(target)) {
+    target[key] = val;
+    return val;
+  }
+}
+
+/**
+ * Delete a property and trigger change if necessary.
+ */
+export function del(target, key) {
+  if (isObject(target)) {
+    delete target[key];
+    return;
+  }
+}

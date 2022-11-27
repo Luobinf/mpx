@@ -89,6 +89,14 @@ function aliasReplace (options = {}, alias, target) {
   return options
 }
 
+function isSet (value) {
+  return Object.prototype.toString.call(value) === '[object Set]';
+}
+
+function isMap (value) {
+  return Object.prototype.toString.call(value) === '[object Map]';
+}
+
 export {
   hasProto,
   noop,
@@ -106,5 +114,7 @@ export {
   aliasReplace,
   dash2hump,
   hump2dash,
-  def
+  def,
+  isSet,
+  isMap
 }

@@ -20,7 +20,9 @@ export {
   aliasReplace,
   dash2hump,
   hump2dash,
-  def
+  def,
+  isSet,
+  isMap
 } from './base'
 
 export {

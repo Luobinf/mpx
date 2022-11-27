@@ -1,4 +1,5 @@
-import { ReactiveEffect } from './effect'
+// import { ReactiveEffect } from './effect'
+import { ReactiveEffect } from '../reactivity/src/effect'
 import { isRef } from './ref'
 import { isReactive } from './reactive'
 import { queuePreFlushCb, queuePostFlushCb } from './scheduler'
@@ -11,7 +12,9 @@ import {
   warn,
   isArray,
   remove,
-  callWithErrorHandling
+  callWithErrorHandling,
+  isSet,
+  isMap
 } from '@mpxjs/utils'
 
 export function watchEffect (effect, options) {
@@ -172,6 +175,10 @@ export function traverse (value, seen) {
     for (const key in value) {
       traverse(value[key], seen)
     }
+  } else if (isSet(value) || isMap(value)) {
+    value.forEach((v) => {
+      traverse(v, seen)
+    })
   }
   return value
 }
